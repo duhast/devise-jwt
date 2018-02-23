@@ -26,7 +26,7 @@ module Devise
 
           # @see Warden::JWTAuth::Interfaces::RevocationStrategy#revoke_jwt
           def self.revoke_jwt(_payload, user)
-            user.update_column(:jti, generate_jti)
+            user.update(jti: generate_jti)
           end
 
           # Generates a random and unique string to be used as jti
